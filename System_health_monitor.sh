@@ -7,7 +7,7 @@ LOG_FILE="/home/ubuntu/system_health.log"
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
 # This gets the CPU usage (average over 1 second) of instance.
-CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $NF"%"}')
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100 - $8"%"}')
 
 # This gets memory usage of instance
 MEM_USAGE=$(free | awk '/Mem/ {printf "%.2f%%", $3/$2 * 100}')
